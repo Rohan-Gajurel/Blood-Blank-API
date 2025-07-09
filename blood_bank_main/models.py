@@ -38,34 +38,47 @@ class Person(models.Model):
     hospital=models.ForeignKey('Hospital', on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.first_name
+
 class Hospital(models.Model):
     name= models.CharField(max_length=100, null=False)
     address = models.CharField(max_length=255, null=False)
     contact_number = models.CharField(max_length=15, null=False, unique=True)
-
+    def __str__(self):
+        return self.name
+    
 class BloodBankBranch(models.Model):
     name = models.CharField(max_length=100, null=False)
     address = models.CharField(max_length=255, null=False)
     contact_number = models.CharField(max_length=15, null=False, unique=True)
+    def __str__(self):
+        return self.name
 
 class BloodStock(models.Model):
     branch = models.ForeignKey(BloodBankBranch, on_delete=models.CASCADE)
     blood_group = models.CharField(max_length=5, null=False)
     quantity = models.PositiveIntegerField(null=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.branch.name
 
 class DonationCenter(models.Model):
     name = models.CharField(max_length=100, null=False)
     address = models.CharField(max_length=255, null=False)
     contact_number = models.CharField(max_length=15, null=False, unique=True)
+    def __str__(self):
+        return self.name
 
-class Blood(models.Model):
+class Donations(models.Model):
     blood_group = models.CharField(max_length=5, null=False)
     donor = models.ForeignKey(Person, on_delete=models.CASCADE, null=False)
     donation_center = models.ForeignKey(DonationCenter, on_delete=models.CASCADE, null=False)
     date_collected = models.DateField(null=False)
     expire_date = models.DateField(null=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.blood_group
 
 
 class BloodRequest(models.Model):
@@ -76,4 +89,6 @@ class BloodRequest(models.Model):
     request_date = models.DateField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=[("Pending", "Pending"), ("Approved", "Approved"), ("Rejected", "Rejected")], default="Pending")
     created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.receiver.first_name
 
