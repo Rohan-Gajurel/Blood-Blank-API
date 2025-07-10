@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Donation Camps | Blood Bank{% endblock %}
+{% block content %}
+<h2 class="mb-4">Donation Camps</h2>
+<div class="row">
+    {% for camp in donation_camps_list %}
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ camp.name }}</h5>
+                <p class="card-text">Date: 2024-06-15<br>Time: 10:00 AM - 4:00 PM<br>Location: {{camp.address}}</p>
+                <p class="card-text"><small class="text-muted">Contact: {{camp.contact_number}}</small></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<p class="text-muted">* Data is for demonstration. Actual camp details may vary.</p>
+{% endblock %} 

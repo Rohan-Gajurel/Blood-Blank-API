@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Request Blood | Blood Bank{% endblock %}
+{% block content %}
+<h2 class="mb-4">Request Blood</h2>
+{% if form.is_valid %}
+    <div class="alert alert-success">Your request has been submitted. We will contact you soon.</div>
+{% endif %}
+<form method="post" novalidate>
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">{{ form.name.label_tag }}{{ form.name }}</div>
+            <div class="mb-3">{{ form.contact.label_tag }}{{ form.contact }}</div>
+            <div class="mb-3">{{ form.blood_type.label_tag }}{{ form.blood_type }}</div>
+            <div class="mb-3">{{ form.units_needed.label_tag }}{{ form.units_needed }}</div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">{{ form.reason.label_tag }}{{ form.reason }}</div>
+            <div class="mb-3">{{ form.hospital.label_tag }}{{ form.hospital }}</div>
+            <div class="mb-3">{{ form.date_needed.label_tag }}{{ form.date_needed }}</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Submit Request</button>
+</form>
+{% endblock %} 

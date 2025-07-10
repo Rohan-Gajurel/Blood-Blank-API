@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Blood Availability | Blood Bank{% endblock %}
+{% block content %}
+<h2 class="mb-4">Available Blood Types</h2>
+<table class="table table-bordered table-striped">
+    <thead class="table-danger">
+        <tr>
+            <th>Branch</th>
+            <th>Blood Type</th>
+            <th>Units Available</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blood in blood_availability_list %}
+        <tr>
+            <td>{{ blood.branch }}</td>
+            <td>{{ blood.blood_group }}</td>
+            <td>{{ blood.quantity }}</td> 
+        </tr>           
+        {% endfor %}
+    </tbody>
+</table>
+<p class="text-muted">* Data is for demonstration. Actual availability may vary.</p>
+{% endblock %} 

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Home | Blood Bank{% endblock %}
+{% block content %}
+<div class="jumbotron text-center py-5 bg-light mb-4">
+    <h1 class="display-4">Donate Blood, Save Lives</h1>
+    <p class="lead">Welcome to our Blood Bank Management System. Your contribution can make a difference!</p>
+
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3>About Us</h3>
+        <p>We are committed to providing safe and timely blood to those in need. Join us in our mission to save lives through blood donation and support.</p>
+    </div>
+    <div class="col-md-6">
+        <h3>Quick Links</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="{% url 'blood_availability' %}">Check Blood Availability</a></li>
+            <li class="list-group-item"><a href="{% url 'donation_camps' %}">Donation Camps</a></li>
+            
+        </ul>
+    </div>
+</div>
+{% endblock %} 
