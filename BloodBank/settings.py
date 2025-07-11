@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blood_bank_main',
     'rest_framework',
-    'blood_bank_api',  
+    'blood_bank_api',
+    'accounts', 
 ]
 
 MIDDLEWARE = [

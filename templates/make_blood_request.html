@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Make Request Blood | Blood Bank{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card-header">
+                <h2>Make Blood Request</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Make Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %} 

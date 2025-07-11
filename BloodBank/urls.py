@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('blood_bank_api.urls')),
     path('', include('blood_bank_main.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
