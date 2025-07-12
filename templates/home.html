@@ -16,6 +16,12 @@
         <ul class="list-group">
             <li class="list-group-item"><a href="{% url 'blood_availability' %}">Check Blood Availability</a></li>
             <li class="list-group-item"><a href="{% url 'donation_camps' %}">Donation Camps</a></li>
+            <li class="list-group-item"><a href="{% url 'blood_request_list' %}">View Blood Requests</a></li>
+            {% if user.is_authenticated %}
+            <li class="list-group-item"><a href="{% url 'make_blood_request' %}">Make a Blood Request</a></li>
+            {% else %}
+            <li class="list-group-item"><a href="{% url 'accounts:login' %}">Login to Make a Request</a></li>
+            {% endif %}
             
         </ul>
     </div>

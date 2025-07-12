@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Blood Requests| Blood Bank{% endblock %}
+{% block content %}
+<h2 class="mb-4">Blood Request</h2>
+<table class="table table-bordered table-striped">
+    <thead class="table-danger">
+        <tr>
+            <th>Blood Group</th>
+            <th>Quantity Required</th>
+            <th>Status</th>
+            <th>Requested At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for blood_request in blood_requests_list %}
+        <tr>
+            <td>{{ blood_request.blood_group_required }}</td>
+            <td>{{ blood_request.quantity_required }}</td>
+            <td>{{ blood_request.status }}</td>
+            <td>{{ blood_request.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p class="text-muted">* Data is for demonstration. Actual availability may vary.</p>
+{% endblock %}

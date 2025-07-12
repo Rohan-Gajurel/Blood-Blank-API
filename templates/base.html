@@ -22,9 +22,9 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'blood_availability' %}">Blood
                             Availability</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'donation_camps' %}">Donation Camps</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blood_request_list' %}">Blood Requests</a></li>
                     <div class="navbar-nav ms-auto d-flex align-items-center">
                         {% if user.is_authenticated %}
-                        <span class="navbar-text me-3">Welcome, {{user.username}} !</span>
                         <a href="{% url 'make_blood_request' %}"class="btn btn-outline-primary me-2">Make Blood Request</a>
                         <form method="post" action="{% url 'accounts:logout' %}" class="d-inline">
                             {% csrf_token %}
